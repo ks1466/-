@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+body {
+	font-family: 'Poor Story', cursive;
+	font-size: 32px;
+	
+}
+
+.tlist {
+	font-size: 2rem;
+}
+
+.login-form{
+	height : 700px;
+	
+}
+
+p {
+	text-align:center;
+	margin-top : 20px;
+}
