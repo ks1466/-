@@ -1,6 +1,8 @@
 package action;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,23 +34,32 @@ public class JoinAction extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		
-		String userID = request.getParameter("userID");
+		String userID = request.getParameter("userID").trim();
 		System.out.println(userID);
-		String userPassword = request.getParameter("userPassword");
-		String userName = request.getParameter("userName");
-		String userGender = request.getParameter("userGender");
+		String userPassword = request.getParameter("userPassword").trim();
+		String userName = request.getParameter("userName").trim();
+		String userGender = request.getParameter("userGender").trim();
 		System.out.println(userGender);
-		String userEmail = request.getParameter("userEmail");
+		String userEmail = request.getParameter("userEmail").trim();
 		System.out.println(userEmail);
+		String userTable = "10";// table 10 init
+		
 		
 		UserVO user = new UserVO(userID , userPassword , userName , 
-				userGender , userEmail);
+				userGender , userEmail , userTable);
 		
 		UserDAO dao = new UserDAO().getInstance();
 		int is_join = dao.join(user);
 		
-		
-		
+		System.out.println(is_join);
+		if(is_join == 1) {
+			RequestDispatcher disp = request.getRequestDispatcher("login.jsp");
+			disp.forward(request, response);
+		}
+		else {
+			RequestDispatcher disp = request.getRequestDispatcher("join.jsp");
+			disp.forward(request, response);
+		}
 	}
 
 }

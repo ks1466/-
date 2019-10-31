@@ -9,17 +9,19 @@ public class UserVO {
 	private String userName;
 	private String userGender;
 	private String userEmail;
+	private String userTable;
 	
 	public UserVO() {
 		
 	}
 	public UserVO(String userID , String userPassword ,
-			String userName , String userGender , String userEmail) {
+			String userName , String userGender , String userEmail, String userTable) {
 		this.userID = userID;
 		this.userPassword = userPassword;
 		this.userName = userName;
 		this.userGender = userGender;
 		this.userEmail = userEmail;
+		this.userTable = userTable;
 	}
 	
 	public String getUserID() {
@@ -51,6 +53,12 @@ public class UserVO {
 	}
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
+	}
+	public String getUserTable() {
+		return userTable;
+	}
+	public void setUserTable(String userTable) {
+		this.userTable = userTable;
 	}
 	
 	

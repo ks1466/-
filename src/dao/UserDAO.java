@@ -24,7 +24,7 @@ public class UserDAO {
 	}
 	
 	public int join(UserVO user) {
-		String SQL = "INSERT INTO USER VALUES(?,?,?,?,?)";
+		String SQL = "INSERT INTO USER VALUES(?,?,?,?,?,?)";
 		
 		try {
 			pstmt = con.prepareStatement(SQL);
@@ -33,6 +33,7 @@ public class UserDAO {
 			pstmt.setString(3, user.getUserName());
 			pstmt.setString(4, user.getUserGender());
 			pstmt.setString(5, user.getUserEmail());
+			pstmt.setString(6, user.getUserTable());
 			
 			int n = pstmt.executeUpdate();
 			System.out.println(n);
@@ -62,6 +63,7 @@ public class UserDAO {
 				user.setUserName(rs.getString("userName"));
 				user.setUserGender(rs.getString("userGender"));
 				user.setUserEmail(rs.getString("userEmail"));
+				user.setUserTable(rs.getString("userTable"));
 				System.out.println(user.getUserName());
 			}
 			
